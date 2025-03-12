@@ -1,13 +1,9 @@
+# Name: Naveen Jaisanker
+
+# Reg. No.: 212224110039
+
+
 # EXPERIMENT-01-INTERFACING-A-DIGITAL-OUTPUT-TO-IOT-DEVELOPMENT-BOARD
-
-
-**DATE:**
-
-**NAME:**
-
-**ROLL NO:**
-
-**DEPARTMENT:**
 
 ## Aim
 
@@ -60,7 +56,6 @@ With its power-efficient design, built-in LoRaWAN support, and flexible communic
 
 ![image](https://user-images.githubusercontent.com/36288975/226189461-a573e62f-a109-4631-a250-a20925758fe0.png)
 
-
 9. Use project and build all 
 
 ![image](https://user-images.githubusercontent.com/36288975/226189554-3f7101ac-3f41-48fc-abc7-480bd6218dec.png)
@@ -73,22 +68,44 @@ With its power-efficient design, built-in LoRaWAN support, and flexible communic
 
 ![Screenshot 2025-03-11 135208](https://github.com/user-attachments/assets/bb67ab6b-81a5-450c-b170-4276a9b87ef2)
 
-
-
 12. Connect the STM board through the COM port, then upload the corresponding project ELF file while ensuring the board is in flash mode, and click on 'Start Program.' After the file download is complete, switch your board to run mode and press the reset button to see the output
-
-
-
-
-
 
 ## STM 32 CUBE PROGRAM
 
-```c
-// Your STM 32 CUBE Program code here
+```
+#include "main.h"
+
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+
+int main(void)
+{
+  HAL_Init();
+
+  SystemClock_Config();
+
+  MX_GPIO_Init();
+
+  while (1)
+  {
+
+	     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+	     HAL_Delay(1000);
+	     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+	     HAL_Delay(1000);
+  }
+}
 ```
 
 ## OUTPUT
+
+![ledoff](https://github.com/user-attachments/assets/34f75b66-905e-47c2-971e-868387d2b839)
+
+LED OFF
+
+![ledon](https://github.com/user-attachments/assets/9175c88b-2211-47e7-85e0-c72ee32d4f85)
+
+LED ON
 
 ## Result
 
